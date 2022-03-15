@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\Super_Sorter\bin\Release\Super_Sorter.exe.config
+C:\Users\Admin\Desktop\Super_Sorter\bin\Release\Super_Sorter.exe
+C:\Users\Admin\Desktop\Super_Sorter\bin\Release\Super_Sorter.pdb
+C:\Users\Admin\Desktop\Super_Sorter\bin\Release\ExifLib.dll
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.Form1.resources
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.Properties.Resources.resources
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.csproj.CopyComplete
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.exe
+C:\Users\Admin\Desktop\Super_Sorter\obj\Release\Super_Sorter.pdb
