@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>помойка.ico</ApplicationIcon>
+    <ApplicationIcon>SuperSorterIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.7.0.0, Culture=neutral, PublicKeyToken=30284005913968db, processorArchitecture=MSIL">
@@ -89,7 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\not_available.png" />
-    <Content Include="помойка.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SuperSorterIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

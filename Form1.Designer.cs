@@ -50,6 +50,8 @@ namespace Super_Sorter
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,7 +193,7 @@ namespace Super_Sorter
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(276, 306);
+            this.listBox1.Size = new System.Drawing.Size(276, 274);
             this.listBox1.TabIndex = 11;
             // 
             // button5
@@ -214,7 +216,7 @@ namespace Super_Sorter
             this.checkBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox2.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBox2.Location = new System.Drawing.Point(187, 324);
+            this.checkBox2.Location = new System.Drawing.Point(191, 298);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(178, 20);
             this.checkBox2.TabIndex = 13;
@@ -237,12 +239,42 @@ namespace Super_Sorter
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(0, 17);
             // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox3.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.checkBox3.Location = new System.Drawing.Point(12, 298);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(136, 20);
+            this.checkBox3.TabIndex = 15;
+            this.checkBox3.Text = "Копировать файлы";
+            this.checkBox3.UseVisualStyleBackColor = false;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox4.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.checkBox4.Location = new System.Drawing.Point(191, 323);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(178, 20);
+            this.checkBox4.TabIndex = 16;
+            this.checkBox4.Text = "Отобразить в списке ->";
+            this.checkBox4.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(809, 453);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.button5);
@@ -288,6 +320,8 @@ namespace Super_Sorter
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel status;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }
 
