@@ -37,7 +37,7 @@ namespace Super_Sorter
             this.button3 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.splitFiles = new System.Windows.Forms.CheckBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -47,11 +47,12 @@ namespace Super_Sorter
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.seasonSort = new System.Windows.Forms.CheckBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.status = new System.Windows.Forms.ToolStripStatusLabel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.copyFiles = new System.Windows.Forms.CheckBox();
+            this.viewInList = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,28 +102,28 @@ namespace Super_Sorter
             this.button3.BackColor = System.Drawing.Color.YellowGreen;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(12, 395);
+            this.button3.Location = new System.Drawing.Point(12, 398);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(351, 30);
+            this.button3.Size = new System.Drawing.Size(351, 27);
             this.button3.TabIndex = 4;
             this.button3.Text = "Сортировать";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Button3Click);
             // 
-            // checkBox1
+            // splitFiles
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.Location = new System.Drawing.Point(12, 323);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(178, 20);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Разделять фото и видео";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.splitFiles.AutoSize = true;
+            this.splitFiles.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.splitFiles.Checked = true;
+            this.splitFiles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.splitFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.splitFiles.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.splitFiles.Location = new System.Drawing.Point(12, 323);
+            this.splitFiles.Name = "splitFiles";
+            this.splitFiles.Size = new System.Drawing.Size(178, 20);
+            this.splitFiles.TabIndex = 6;
+            this.splitFiles.Text = "Разделять фото и видео";
+            this.splitFiles.UseVisualStyleBackColor = false;
             // 
             // notifyIcon1
             // 
@@ -193,7 +194,7 @@ namespace Super_Sorter
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(276, 274);
+            this.listBox1.Size = new System.Drawing.Size(276, 242);
             this.listBox1.TabIndex = 11;
             // 
             // button5
@@ -210,18 +211,18 @@ namespace Super_Sorter
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // checkBox2
+            // seasonSort
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox2.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBox2.Location = new System.Drawing.Point(191, 298);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(178, 20);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.Text = "Сортировать по сезонам";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.seasonSort.AutoSize = true;
+            this.seasonSort.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.seasonSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seasonSort.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.seasonSort.Location = new System.Drawing.Point(191, 298);
+            this.seasonSort.Name = "seasonSort";
+            this.seasonSort.Size = new System.Drawing.Size(178, 20);
+            this.seasonSort.TabIndex = 13;
+            this.seasonSort.Text = "Сортировать по сезонам";
+            this.seasonSort.UseVisualStyleBackColor = false;
             // 
             // statusStrip1
             // 
@@ -239,33 +240,48 @@ namespace Super_Sorter
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(0, 17);
             // 
-            // checkBox3
+            // copyFiles
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox3.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBox3.Location = new System.Drawing.Point(12, 298);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(136, 20);
-            this.checkBox3.TabIndex = 15;
-            this.checkBox3.Text = "Копировать файлы";
-            this.checkBox3.UseVisualStyleBackColor = false;
+            this.copyFiles.AutoSize = true;
+            this.copyFiles.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.copyFiles.Checked = true;
+            this.copyFiles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.copyFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyFiles.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.copyFiles.Location = new System.Drawing.Point(12, 298);
+            this.copyFiles.Name = "copyFiles";
+            this.copyFiles.Size = new System.Drawing.Size(136, 20);
+            this.copyFiles.TabIndex = 15;
+            this.copyFiles.Text = "Копировать файлы";
+            this.copyFiles.UseVisualStyleBackColor = false;
             // 
-            // checkBox4
+            // viewInList
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox4.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBox4.Location = new System.Drawing.Point(191, 323);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(178, 20);
-            this.checkBox4.TabIndex = 16;
-            this.checkBox4.Text = "Отобразить в списке ->";
-            this.checkBox4.UseVisualStyleBackColor = false;
+            this.viewInList.AutoSize = true;
+            this.viewInList.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.viewInList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewInList.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.viewInList.Location = new System.Drawing.Point(191, 323);
+            this.viewInList.Name = "viewInList";
+            this.viewInList.Size = new System.Drawing.Size(178, 20);
+            this.viewInList.TabIndex = 16;
+            this.viewInList.Text = "Отобразить в списке ->";
+            this.viewInList.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Cascadia Mono PL", 9F, System.Drawing.FontStyle.Bold);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "По дате изменения",
+            "По дате создания"});
+            this.comboBox1.Location = new System.Drawing.Point(12, 268);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(357, 24);
+            this.comboBox1.TabIndex = 17;
+            this.comboBox1.Text = "Если нет даты съемки:";
             // 
             // Form1
             // 
@@ -273,16 +289,17 @@ namespace Super_Sorter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(809, 453);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.viewInList);
+            this.Controls.Add(this.copyFiles);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.seasonSort);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.splitFiles);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
@@ -307,7 +324,7 @@ namespace Super_Sorter
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox splitFiles;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
@@ -317,11 +334,12 @@ namespace Super_Sorter
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox seasonSort;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel status;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox copyFiles;
+        private System.Windows.Forms.CheckBox viewInList;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

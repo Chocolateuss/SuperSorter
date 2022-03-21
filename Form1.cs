@@ -54,8 +54,7 @@ namespace Super_Sorter
                     filesScaned++;
                     BeginInvoke(new Action(() =>
                     {
-                        progressBar1.Value = filesScaned / files.Length * 100;
-                        status.Text = scanfolder + " / " + filename;
+                        status.Text = scanfolder + "   |   " + filename;
                     }));
                     Photo p = new Photo();
                     p.filename = filename;
@@ -73,13 +72,45 @@ namespace Super_Sorter
                     }
                     catch
                     {
-                        p.year = info.CreationTime.Year;
-                        p.season = GetSeason(info.CreationTime.Month);
+                        BeginInvoke(new Action(() =>
+                        {
+                            if (comboBox1.SelectedIndex == 0)
+                            {
+                                p.year = info.LastWriteTime.Year;
+                                p.season = GetSeason(info.LastWriteTime.Month);
+                            }
+                            else if (comboBox1.SelectedIndex == 1)
+                            {
+                                p.year = info.CreationTime.Year;
+                                p.season = GetSeason(info.CreationTime.Month);
+                            }
+                            else
+                            {
+                                p.year = info.LastWriteTime.Year;
+                                p.season = GetSeason(info.LastWriteTime.Month);
+                            }
+                        }));
                     }
                     if (p.year == 0 || p.year == 1)
                     {
-                        p.year = info.CreationTime.Year;
-                        p.season = GetSeason(info.CreationTime.Month);
+                        BeginInvoke(new Action(() =>
+                        {
+                            if (comboBox1.SelectedIndex == 0)
+                            {
+                                p.year = info.LastWriteTime.Year;
+                                p.season = GetSeason(info.LastWriteTime.Month);
+                            }
+                            else if (comboBox1.SelectedIndex == 1)
+                            {
+                                p.year = info.CreationTime.Year;
+                                p.season = GetSeason(info.CreationTime.Month);
+                            }
+                            else
+                            {
+                                p.year = info.LastWriteTime.Year;
+                                p.season = GetSeason(info.LastWriteTime.Month);
+                            }
+                        }));
                     }
                     if (info.Extension.ToLower() == ".jpg" ||
                         info.Extension.ToLower() == ".png" ||
@@ -102,7 +133,7 @@ namespace Super_Sorter
                     }
                 }
             }
-            if (checkBox1.Checked)
+            if (splitFiles.Checked)
             {
                 Directory.CreateDirectory(textBox2.Text + "\\Фотографии");
                 Directory.CreateDirectory(textBox2.Text + "\\Видео");
@@ -122,18 +153,17 @@ namespace Super_Sorter
                 BeginInvoke(new Action(() =>
                 {
                     status.Text = file.filename;
-                    progressBar1.Value = sorted / (videosScaned.Count + photosScaned.Count) * 100;
                 }));
                 try
                 {
-                    if (checkBox2.Checked)
+                    if (seasonSort.Checked)
                     {
-                        if (checkBox1.Checked)
+                        if (splitFiles.Checked)
                         {
                             if (!Directory.Exists(videosDir + "\\" + file.year + "\\" + file.season))
                                 Directory.CreateDirectory(videosDir + "\\" + file.year + "\\" + file.season);
                             File.Copy(file.filename, videosDir + "\\" + file.year + "\\" + file.season + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                         else
@@ -141,18 +171,18 @@ namespace Super_Sorter
                             if (!Directory.Exists(textBox2.Text + "\\" + file.year + "\\" + file.season))
                                 Directory.CreateDirectory(textBox2.Text + "\\" + file.year + "\\" + file.season);
                             File.Copy(file.filename, textBox2.Text + "\\" + file.year + "\\" + file.season + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                     }
                     else
                     {
-                        if (checkBox1.Checked)
+                        if (splitFiles.Checked)
                         {
                             if (!Directory.Exists(videosDir + "\\" + file.year))
                                 Directory.CreateDirectory(videosDir + "\\" + file.year);
                             File.Copy(file.filename, videosDir + "\\" + file.year + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                         else
@@ -160,7 +190,7 @@ namespace Super_Sorter
                             if (!Directory.Exists(textBox2.Text + "\\" + file.year))
                                 Directory.CreateDirectory(textBox2.Text + "\\" + file.year);
                             File.Copy(file.filename, textBox2.Text + "\\" + file.year + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                     }
@@ -179,7 +209,7 @@ namespace Super_Sorter
                     LabelText("Состояние: завершено");
                     MessageBox.Show("Сортировка файлов завершена успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     status.Text = "";
-                    if (checkBox4.Checked)
+                    if (viewInList.Checked)
                         View();
                 }));
             }
@@ -193,18 +223,17 @@ namespace Super_Sorter
                 BeginInvoke(new Action(() =>
                 {
                     status.Text = file.filename;
-                    progressBar1.Value = sorted / (videosScaned.Count + photosScaned.Count) * 100;
                 }));
                 try
                 {
-                    if (checkBox2.Checked)
+                    if (seasonSort.Checked)
                     {
-                        if (checkBox1.Checked)
+                        if (splitFiles.Checked)
                         {
                             if (!Directory.Exists(photosDir + "\\" + file.year + "\\" + file.season))
                                 Directory.CreateDirectory(photosDir + "\\" + file.year + "\\" + file.season);
                             File.Copy(file.filename, photosDir + "\\" + file.year + "\\" + file.season + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                         else
@@ -212,18 +241,18 @@ namespace Super_Sorter
                             if (!Directory.Exists(textBox2.Text + "\\" + file.year + "\\" + file.season))
                                 Directory.CreateDirectory(textBox2.Text + "\\" + file.year + "\\" + file.season);
                             File.Copy(file.filename, textBox2.Text + "\\" + file.year + "\\" + file.season + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                     }
                     else
                     {
-                        if (checkBox1.Checked)
+                        if (splitFiles.Checked)
                         {
                             if (!Directory.Exists(photosDir + "\\" + file.year))
                                 Directory.CreateDirectory(photosDir + "\\" + file.year);
                             File.Copy(file.filename, photosDir + "\\" + file.year + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                         else
@@ -231,7 +260,7 @@ namespace Super_Sorter
                             if (!Directory.Exists(textBox2.Text + "\\" + file.year))
                                 Directory.CreateDirectory(textBox2.Text + "\\" + file.year);
                             File.Copy(file.filename, textBox2.Text + "\\" + file.year + "\\" + file.basename, true);
-                            if (!checkBox3.Checked)
+                            if (!copyFiles.Checked)
                                 File.Delete(file.filename);
                         }
                     }
@@ -250,7 +279,7 @@ namespace Super_Sorter
                     LabelText("Состояние: завершено");
                     MessageBox.Show("Сортировка файлов завершена успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     status.Text = "";
-                    if (checkBox4.Checked)
+                    if (viewInList.Checked)
                         View();
                 }));
             }
